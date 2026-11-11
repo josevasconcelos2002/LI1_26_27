@@ -83,3 +83,14 @@ moveDirecaoPosicoes d ((l,c):h)
                                 | d == Este = [(l,c+1)] ++ moveDirecaoPosicoes d h
                                 | d == Oeste = [(l,c-1)] ++ moveDirecaoPosicoes d h
                                 | otherwise = [(l,c)] ++ moveDirecaoPosicoes d h
+
+
+{- 
+3) Defina uma função que devolve o elemento que se encontra num dado índice de uma lista. 
+Retorna Nothing se o índice não existir.
+-}
+encontraIndiceLista :: Int -> [a] -> Maybe a
+encontraIndiceLista _ [] = Nothing
+encontraIndiceLista n (x:xs) | n < 1 || n > length (x:xs) = Nothing
+                             | n > 1 = encontraIndiceLista (n-1) xs
+                             | otherwise = Just x
