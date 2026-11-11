@@ -71,6 +71,7 @@ moveDirecoesPosicao (d:ds) (l,c)
                                 | d == Sul = moveDirecoesPosicao ds (l+1,c)
                                 | d == Este = moveDirecoesPosicao ds (l,c+1)
                                 | d == Oeste = moveDirecoesPosicao ds (l,c-1)
+                                | otherwise = moveDirecoesPosicao ds (l,c)
 
 
 -- 2) Defina uma função que aplica uma mesma movimentação a uma lista de posições.
@@ -81,3 +82,4 @@ moveDirecaoPosicoes d ((l,c):h)
                                 | d == Sul = [(l+1,c)] ++ moveDirecaoPosicoes d h
                                 | d == Este = [(l,c+1)] ++ moveDirecaoPosicoes d h
                                 | d == Oeste = [(l,c-1)] ++ moveDirecaoPosicoes d h
+                                | otherwise = [(l,c)] ++ moveDirecaoPosicoes d h
